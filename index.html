@@ -204,6 +204,11 @@ section h2{display:inline-block;background:#ffe4c4;color:#8a4b1c;border-radius:9
 .pgw{transform-box:fill-box;transform-origin:50% 100%;animation:pgw 10s linear infinite}
 @keyframes pgw{0%{transform:translate(0,0) scale(.65);opacity:0}10%{opacity:1}86%{opacity:1}100%{transform:translate(0,32px) scale(1.15);opacity:0}}
 @media(prefers-reduced-motion:reduce){.pgw{animation:none}}
+
+nav{background:#fff4e0;border-bottom:2px dashed #f0c9a0;padding:8px 10px;gap:8px}
+nav button{flex:1 0 auto;background:#fff;color:#5a4636;border-radius:999px;padding:8px 14px;font-weight:700;box-shadow:0 2px 0 rgba(0,0,0,.08)}
+nav button:nth-child(1){background:#ffe3d3}nav button:nth-child(2){background:#dcefff}nav button:nth-child(3){background:#e2f5d3}nav button:nth-child(4){background:#fff0c0}nav button:nth-child(5){background:#eadfff}nav button:nth-child(6){background:#d9f1ea}
+nav button.on:nth-child(n){background:#ff8a5c;color:#fff;transform:translateY(-1px);box-shadow:0 3px 0 #e56f42}
 </style></head><body>
 <nav id="nav"></nav>
 <main>
@@ -234,7 +239,7 @@ const days=[
 const todo=["護照效期確認（至少 6 個月）","申請澳洲 ETA（電子簽證）","購買旅遊保險與網路卡 / eSIM","兌換澳幣、準備信用卡（輕軌可感應刷卡）","預約大洋路大巴與企鵝島行程","確認歌劇院音樂會票與開演時間（11/15）","準備防寒大外套（企鵝島夜風冷）","轉接插頭（澳洲為 Type I）","查詢攜帶入境規定（食品需申報）"];
 const stay=[["墨爾本｜Collins House","11/10 – 11/14（4 晚）","Collins House Melbourne"],["企鵝島集合點｜Mail Exchange Hotel","11/11 15:00 集合","Mail Exchange Hotel Melbourne"],["雪梨｜Meriton Suites Kent Street","11/14 – 11/16（2 晚）","Meriton Suites Kent Street Sydney"]];
 const $=id=>document.getElementById(id);
-const tabs=[["home","首頁"],["flight","航班"],["plan","行程"],["todo","清單"],["cost","費用"],["stay","住宿"]];
+const tabs=[["home","🏠 首頁"],["flight","✈️ 航班"],["plan","🗓️ 行程"],["todo","✅ 清單"],["cost","💰 費用"],["stay","🏨 住宿"]];
 $("nav").innerHTML=tabs.map(t=>`<button data-t="${t[0]}" class="${t[0]=="home"?"on":""}">${t[1]}</button>`).join("");
 $("nav").onclick=e=>{const t=e.target.dataset.t;if(!t)return;document.querySelectorAll("section,nav button").forEach(x=>x.classList.remove("on"));$(t).classList.add("on");e.target.classList.add("on");scrollTo(0,0)};
 const wk=d=>{const m=d[0].match(/(\d+\/\d+)（(.)）/);return m?[m[1],m[2]]:[d[0],""]};
